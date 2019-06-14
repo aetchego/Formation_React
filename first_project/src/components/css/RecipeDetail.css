@@ -1,4 +1,13 @@
-.button {
+.btn btn-outline-dark btn-sm {
     margin-right: 5%;
     margin-bottom: 8%;
+}
+
+h5 {
+    color: rgb(122, 122, 134);
+    font-style: oblique;
+}
+
+.card {
+    background-color: rgba(255, 192, 203, 0.5);
 }

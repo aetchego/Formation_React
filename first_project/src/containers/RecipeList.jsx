@@ -21,6 +21,7 @@ class RecipeList extends Component {
     updateAll() {
         axios.get('http://localhost:8080/api/v1/recipes')
         .then(response => {
+            console.log(response.data)
             this.setState({
                 recipes: response.data
             });
@@ -80,9 +81,9 @@ class RecipeList extends Component {
 
                 <div className="container">
                     <div className="row">
-                        {this.state.recipes.map(recipe => <div className="col-md-3"> <RecipeDetail recipe={recipe} delete={this.delete} update={this.update} /></div>)}
+                        {this.state.recipes.map(recipe => <div className="col-md-5"> <RecipeDetail recipe={recipe} delete={this.delete} update={this.update} /></div>)}
                         {this.state.addMode ?
-                            <div className="col-md-3"> <RecipeDetail editMode="true" recipe={{}} delete={this.delete} update={this.add} /> </div> : null}
+                            <div className="col-md-5"> <RecipeDetail editMode="true" recipe={{}} delete={this.delete} update={this.add} /> </div> : null}
                     </div>
                 </div>
             </div>

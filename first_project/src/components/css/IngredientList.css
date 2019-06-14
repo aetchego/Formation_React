@@ -1,0 +1,15 @@
+.chip {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.ingredients {
+    margin-top: 3%;
+    padding: 3%;
+    background-color: rgba(255, 192, 203, 0.5);
+}
+
+h6 {
+    color: #6c757d;
+    font-weight: bold;
+}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-import Button from 'reactstrap/lib/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import './css/RecipeDetail.css';
+import IngredientList from '../containers/IngredientList';
 
 class RecipeDetails extends Component {
 
@@ -46,21 +46,24 @@ class RecipeDetails extends Component {
 
     render() {
         let { recipe } = this.state;
+        console.log(recipe);
         return (
-            <Card>
+            <Card >
                 <CardImg top src={recipe.picture} alt="Card"></CardImg>
                 <CardBody>
                     {this.state.editMode ?
                         <div><input value={recipe.picture} onChange={this.onPictureChange} /><input value={recipe.name} onChange={this.onNameChange} />
-                            <textarea value={recipe.description} onChange={this.onDescriptionChange} /></div> :
-                        <div><CardTitle>{recipe.name}</CardTitle><CardText>{recipe.description}</CardText></div>}
+                            <textarea value={recipe.description} onChange={this.onDescriptionChange} />
+                            </div> :
+                        <div><CardTitle><h1>{recipe.name}</h1></CardTitle><CardText><h5>{recipe.description}</h5></CardText>
+                        <IngredientList></IngredientList></div>}
                 </CardBody>
-                <div className="container">
+
                     <div className="row">
                     <div className="col-md-6">
-                        <Button className="button" onClick={this.props.delete(recipe.id)}><FontAwesomeIcon icon={faTrash} /></Button>
-                        <Button className="button" onClick={this.toggleEditMode}><FontAwesomeIcon icon={faPen} /></Button>
-                    </div></div></div>
+                        <button type="button" className="btn btn-outline-dark btn-sm" onClick={this.props.delete(recipe.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                        <button type="button" className="btn btn-outline-dark btn-sm" onClick={this.toggleEditMode}><FontAwesomeIcon icon={faPen} /></button>
+                    </div></div>
             </Card>
         );
     }
